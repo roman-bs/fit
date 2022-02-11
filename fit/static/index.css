@@ -1,0 +1,19 @@
+
+
+body {
+    background-color: #cecece;
+}
+
+.posts .post-item {
+    margin-bottom: 15px;
+}
+
+.image-container {
+    max-height: 150px;
+    text-align: center;
+}
+
+.img-thumbnail {
+    max-height: 150px;
+    width: auto;
+}

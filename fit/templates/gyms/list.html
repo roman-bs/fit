@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="gyms">
+    <h1 class="my-4">Gym</h1>
+    <div class="row">
+      {% for gym in gyms %}
+        <div class="col-4 gym-item">
+          <div class="card">
+              <div class="image-container">
+              {% if gym.image %}
+                <img src="{{ gym.image}}" class="card-img-top img-thumbnail" alt="{{ gym.title }}">
+              {% else %}
+                <img src="{% static 'no-image.jpg' %}" class="card-img-top img-thumbnail" alt="No image">
+              {% endif %}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ gym.title }}</h5>
+                <p class="gym-link">
+                 <a href="{% url "gym_card" gym.id %}">About the gym</a>
+                </p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %} 
