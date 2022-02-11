@@ -5,6 +5,7 @@
 {% block content %}
 <div class="col-4 gym-item">
   <div class="card">
+    <h1 class="my-4">{{ gym.title }}</h1>
      <div class="image-container">
               {% if gym.image %}
                 <img src="{{ gym.image.url }}" class="card-img-top img-thumbnail" alt="{{ gym.title }}">
