@@ -18,6 +18,7 @@ from django.urls import path
 
 from fit.views import register
 from gyms.views import index, gym_list, gym_view
+from swimming_pools.views import sp_list
 
 
 urlpatterns = [
@@ -25,5 +26,6 @@ urlpatterns = [
     path('', index, name='index'),
     path("register/", register, name="register"),
     path("gyms/", gym_list, name="gyms_list"),
+    path("swimming_pools/", sp_list, name="sp_list"),
     path('gum/<int:gym_id>', gym_view, name='gym_card'),
 ]

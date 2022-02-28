@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'fit',
     'gyms',
+    'swimming_pools',
 
 ]
 

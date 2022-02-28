@@ -23,17 +23,20 @@
                <div class="dropdown-menu">
                   <a class="dropdown-item" href="#">Войти</a>
                   <a class="dropdown-item" href="#">Регистрация</a>
+                   <a class="dropdown-item" href="#">Выйти</a>
                </div>
         </li>
     </ul>
+      <div class="btn-group">
+  <!-- Кнопка -->
+  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Личный кабинет
+  </button>
+  <!-- Меню -->
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Войти</a>
+    <a class="dropdown-item" href="{% url "register"%}">Регистрация</a>
+    <a class="dropdown-item" href="#">Выход</a>
   </div>
-     <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-               Личный кабинет
-               </a>
-               <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Войти</a>
-                  <a class="dropdown-item" href="#">Регистрация</a>
-               </div>
-        </li>
+      </div>
 </nav>
