@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from gyms.models import Gym, Tags
+from gyms.models import Gym, Tags, Training_program, Diet, Сoach, Сlient
 
 
 @admin.register(Tags)
@@ -15,10 +15,26 @@ class TagsAdminInline(admin.TabularInline):
 
 
 @admin.register(Gym)
-class PostAdmin(admin.ModelAdmin):
-    list_display = ("author", "title", "slug", "created_at")
-    fields = ("author", "title", "image", "slug", "text", "address", "created_at")
-    readonly_fields = ("created_at",)
-    search_fields = ("title", "slug", "text")
+class GymAdmin(admin.ModelAdmin):
 
     inlines = (TagsAdminInline,)
+
+
+@admin.register(Training_program)
+class ProgramAdmin(admin.ModelAdmin):
+    list_display = ("title",)
+
+
+@admin.register(Diet)
+class DietAdmin(admin.ModelAdmin):
+    list_display = ("title",)
+
+
+@admin.register(Сoach)
+class CoachAdmin(admin.ModelAdmin):
+    list_display = ("title",)
+
+
+@admin.register(Сlient)
+class СlientAdmin(admin.ModelAdmin):
+    list_display = ("title",)

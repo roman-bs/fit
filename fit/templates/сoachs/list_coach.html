@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="gyms">
+    <h1 class="my-4">Тренера</h1>
+    <div class="row">
+      {% for coach in coachs %}
+        <div class="col-4 gym-item">
+          <div class="card">
+              <div class="image-container">
+              {% if coach.image %}
+                <img src="{{ coach.image.url }}" class="card-img-top img-thumbnail" alt="{{ coach.title }}">
+              {% else %}
+                <img src="{% static 'no-image.jpg' %}" class="card-img-top img-thumbnail" alt="No image">
+              {% endif %}
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">{{ coach.title }}</h5>
+                <p class="coach-link">
+                 <a href="{% url "coach_card" coach_id %}">About the coach</a>
+                </p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %} 

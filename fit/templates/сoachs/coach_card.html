@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+<div class="col-4 gym-item">
+  <div class="card">
+    <h1 class="my-4">{{ coach.title }}</h1>
+     <div class="image-container">
+              {% if coach.image %}
+                <img src="{{ coach.image.url }}" class="card-img-top img-thumbnail" alt="{{ coach.title }}">
+              {% else %}
+                <img src="{% static 'no-image.jpg' %}" class="card-img-top img-thumbnail" alt="No image">
+              {% endif %}
+     </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ coach.title }}</h5>
+      <p class="card-text">{{ coacg.text }}</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
