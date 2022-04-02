@@ -3,7 +3,7 @@ import logging
 from django.http import HttpResponse
 from django.shortcuts import render
 
-from gyms.models import Gym, Сoach
+from gyms.models import Gym, Trainer
 
 
 logger = logging.getLogger(__name__)
@@ -23,11 +23,11 @@ def gym_view(request, gym_id):
     return render(request, "gyms/card.html", {"gym": gym})
 
 
-def coach_list(request):
-    coachs= Сoach.objects.order_by("-id")
-    return render(request, "сoachs/list_coach.html", {"coachs": coachs})
+def trainer_list(request):
+    trainers= Trainer.objects.order_by("-id")
+    return render(request, "trainers/list_trainer.html", {"trainers": trainers})
 
 
-def coach_view(request, coach_id):
-    coach = Сoach.objects.get(id=coach_id)
-    return render(request, "gyms/card.html", {"coach": coach})
+def trainer_view(request, coach_id):
+    trainer = Trainer.objects.get(id=coach_id)
+    return render(request, "trainers/trainer_card.html", {"trainer": trainer})

@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from fit.views import register
-from gyms.views import index, gym_list, gym_view, coach_view, coach_list
+from gyms.views import index, gym_list, gym_view, trainer_view, trainer_list
 
 
 urlpatterns = [
@@ -25,7 +25,8 @@ urlpatterns = [
     path('', index, name='index'),
     path("register/", register, name="register"),
     path("gyms/", gym_list, name="gyms_list"),
-    path("coachs/", coach_list, name="coach_list"),
+    path("trainers/", trainer_list, name="trainer_list"),
     path('gym/<int:gym_id>', gym_view, name='gym_card'),
-    path('coach/<int:coach_id>', coach_view, name='coach_card'),
+    path('coach/<int:coach_id>', trainer_view, name='trainer_view'),
+    path("register/", register, name="register"),
 ]

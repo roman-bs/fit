@@ -10,15 +10,15 @@
           <div class="card">
               <div class="image-container">
               {% if coach.image %}
-                <img src="{{ coach.image.url }}" class="card-img-top img-thumbnail" alt="{{ coach.title }}">
+                <img src="{{ trainer.image.url }}" class="card-img-top img-thumbnail" alt="{{ trainer.title }}">
               {% else %}
                 <img src="{% static 'no-image.jpg' %}" class="card-img-top img-thumbnail" alt="No image">
               {% endif %}
             </div>
             <div class="card-body">
-              <h5 class="card-title">{{ coach.title }}</h5>
+              <h5 class="card-title">{{ trainer.title }}</h5>
                 <p class="coach-link">
-                 <a href="{% url "coach_card" coach_id %}">About the coach</a>
+                 <a href="{% url "trainer_card" coach_id %}">About the trainer</a>
                 </p>
             </div>
           </div>
