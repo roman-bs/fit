@@ -11,32 +11,26 @@
         <a class="nav-link" href="{% url "gyms_list"%}">Тренажерные залы</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Бассейны</a>
+        <a class="nav-link" href="{% url "trainer_list"%}">Тренера</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Карта</a>
+        <a class="nav-link" href="{% url "home"%}">Абонементы</a>
       </li>
-        <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
-               Личный кабинет
-               </a>
-               <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Войти</a>
-                  <a class="dropdown-item" href="#">Регистрация</a>
-                   <a class="dropdown-item" href="#">Выйти</a>
-               </div>
-        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="{% url "history"%}"> Мои абонементы</a>
+      </li>
     </ul>
-      <div class="btn-group">
-  <!-- Кнопка -->
-  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Личный кабинет
-  </button>
-  <!-- Меню -->
-  <div class="dropdown-menu">
-    <a class="dropdown-item" href="#">Войти</a>
-    <a class="dropdown-item" href="{% url "register"%}">Регистрация</a>
-    <a class="dropdown-item" href="#">Выход</a>
-  </div>
-      </div>
+      <ul class="nav justify-content-end">
+  {% if user.is_authenticated %}
+    <li class="navbar-nav">
+      <a class="nav-link" href="/logout/">Выйти</a>
+    </li>
+  {% else %}
+    <li class="navbar-nav">
+      <p class="text">
+        <a class="text-reset" href="/login/">Войти</a>/<a href="/register/" class="text-reset">Регистрация</a>
+      </p>
+    </li>
+  {% endif %}
+  </ul>
 </nav>

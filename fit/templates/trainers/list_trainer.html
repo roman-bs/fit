@@ -2,14 +2,14 @@
 {% load static %}
 
 {% block content %}
-  <div class="gyms">
+  <div class="trainers">
     <h1 class="my-4">Тренера</h1>
     <div class="row">
-      {% for coach in coachs %}
+      {% for trainer in trainers %}
         <div class="col-4 gym-item">
           <div class="card">
               <div class="image-container">
-              {% if coach.image %}
+              {% if trainer.image %}
                 <img src="{{ trainer.image.url }}" class="card-img-top img-thumbnail" alt="{{ trainer.title }}">
               {% else %}
                 <img src="{% static 'no-image.jpg' %}" class="card-img-top img-thumbnail" alt="No image">
@@ -17,8 +17,8 @@
             </div>
             <div class="card-body">
               <h5 class="card-title">{{ trainer.title }}</h5>
-                <p class="coach-link">
-                 <a href="{% url "trainer_card" coach_id %}">About the trainer</a>
+                <p class="trainer-link">
+                 <a href="{% url "trainer_view" trainer.id %}">О тренере</a>
                 </p>
             </div>
           </div>

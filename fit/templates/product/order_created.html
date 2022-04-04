@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Thank you{% endblock %}
+
+{% block content %}
+    <h1>Спасибо!</h1>
+    <p>Ваш абонемент отразиться в разделе "Мои абонементы"
+        {% for item in order %}
+          <a>{{ item }}</a>.
+        {% endfor %}
+    </p>
+
+    <a class="btn btn-dark btn-sm" href="{% url "home" %}" role="button">Продолжить выбор</a>
+{% endblock %}

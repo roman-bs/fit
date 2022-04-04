@@ -2,6 +2,9 @@ import logging
 
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
+from django.shortcuts import render, get_object_or_404
+from gym.models import Product
+from cart.forms import CartAddProductForm
 
 from fit.forms import RegisterForm
 
@@ -22,7 +25,14 @@ def register(request):
             )
             user.set_password(form.cleaned_data['password'])
             user.save()
-            return redirect("/")
+            return redirect("home")
     else:
         form = RegisterForm()
-    return render(request, "register.html", {"form": form})
+    return render(request, "authentication/registration.html", {"form": form})
+
+
+def product_detail(request, id, slug):
+    product = get_object_or_404(Product, id=id, slug=slug, available=True)
+    cart_product_form = CartAddProductForm()
+    return render(request, 'cart/detail.html', {'product': product,
+                                                "cart_product_form": cart_product_form})

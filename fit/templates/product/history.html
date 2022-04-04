@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load i18n static crispy_forms_filters%}
+{% load static %}
+
+{% block title %}
+    History
+{% endblock %}
+{% block content %}
+    <h1>Мои абонементы</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Фото</th>
+            <th>абонемент</th>
+            <th>количество</th>
+            <th>цена</th>
+            <th>итого</th>
+            <th>дата</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for item in order %}
+            {% with product=item.purchase %}
+                <tr>
+                    <td>
+                            <img src="
+                                {% if product.image %}
+                                    {{ product.image.url }}
+                                {% else %}
+                                    {% static 'no-image.jpg' %}
+                                {% endif %}" width="80" height="80">
+                    </td>
+                    <td>{{ product.title }}</td>
+                    <td>{{ item.count }}</td>
+                    <td class="num">{{ item.cost }} BYN</td>
+                    <td class="num">{{ item.get_cost}} BYN</td>
+                    <td>{{ item.created_at }}</td>
+                </tr>
+            {% endwith %}
+        {% endfor %}
+          </tbody>
+    </table>
+{% endblock %}
